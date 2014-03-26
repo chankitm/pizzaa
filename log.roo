@@ -1,0 +1,60 @@
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2014-03-14 17:18:38
+project --topLevelPackage com.example.pizza --projectName pizzaa --java 6 --packaging JAR
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2014-03-14 17:18:39
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2014-03-14 17:18:45
+// [failed] hint
+jpa setup --provider HIBERNATE --database MSSQL
+entity jpa --class ~.domain.Topping --testAutomatically
+field string --fieldName name --notNull --sizeMin 2
+hint
+hint
+hint entities
+entity jpa --class ~.domain.Base --testAutomatically
+field string --fieldName name --notNull --sizeMin 2
+entity jpa --class ~.domain.Pizza --testAutomatically
+field string --fieldName name --notNull --sizeMin 2
+field number --fieldName price --type java.lang.Float
+field set --fieldName toppings --type ~.domain.Topping
+field reference --fieldName base --type ~.domain.Base
+entity jpa --class ~.domain.PizzaOrder --testAutomatically 
+field string --fieldName name --notNull --sizeMin 2
+hint
+hint fields
+hint relationships
+field string --fieldName address --sizeMax 30
+field number --fieldName total --type java.lang.Float 
+field date --fieldName deliveryDate --type java.util.Date
+field set --fieldName pizzas --type ~.domain.Pizza
+perform tests
+test integration
+perform tests
+perform tests
+web mvc setup
+web mvc all --package ~.web
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2014-03-17 11:32:16
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2014-03-17 12:15:03
+hint
+security setup
+// [failed] database introspect --schema no-schema-required
+// [failed] database introspect --schema no-schema-required
+// [failed] database introspect --schema no-schema-required
+// [failed] database introspect --schema dbo --enableViews
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2014-03-18 10:17:27
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2014-03-19 10:02:20
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2014-03-21 15:50:33
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2014-03-26 11:32:23
+entity jpa --class ~.model.ColorObject --identifierType ~.model.ColorObjectKey --table COLOR_OBJECT
+field string --fieldName colorValue --column COLOR_VALUE
+field string --fieldName imagePath --column IMAGE_PATH
+field string --fieldName rmsColorCode --column RMS_COLOR_CODE
+field string --fieldName remarks --column REMARKS
+field date --fieldName createDate --type java.util.Date --column CREATE_DATE
+field date --fieldName lastUpdDate --type java.util.Date --column LAST_UPD_DATE
+field string --fieldName lastUpdUsr --column LAST_UPD_USR
+field string --fieldName status --column STATUS --notNull
+focus --class ~.model.ColorObjectKey 
+field string --fieldName colorObjectId --column COLOR_OBJECT_ID
+field string --fieldName colorObjectLocale --column COLOR_OBJECT_LOCALE
+field string --fieldName colorObjectDisplayName --column COLOR_OBJECT_DISPLAY_NAME
+web mvc all --package ~.web
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2014-03-26 13:55:11

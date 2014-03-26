@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_example_pizza_model_ColorObject" object="${colorobject}" path="/colorobjects" z="PzYGBHshpwA9YOVzRJz4O8t9WeI=">
+        <field:display field="colorValue" id="s_com_example_pizza_model_ColorObject_colorValue" object="${colorobject}" z="8ZBvqgjRxMEJeVtg+UlyWYaKyxk="/>
+        <field:display field="imagePath" id="s_com_example_pizza_model_ColorObject_imagePath" object="${colorobject}" z="HfGymUIIoTW9RQ4VV29t7camvHw="/>
+        <field:display field="rmsColorCode" id="s_com_example_pizza_model_ColorObject_rmsColorCode" object="${colorobject}" z="DC59mqC+OZn46lG+bWB6P5Y0d0U="/>
+        <field:display field="remarks" id="s_com_example_pizza_model_ColorObject_remarks" object="${colorobject}" z="HA4gShl4aGXIMcbuyZ26cu5Gc2Y="/>
+        <field:display date="true" dateTimePattern="${colorObject_createdate_date_format}" field="createDate" id="s_com_example_pizza_model_ColorObject_createDate" object="${colorobject}" z="jhj9LnbDdI+cuMZ6wmRdGinWG2s="/>
+        <field:display date="true" dateTimePattern="${colorObject_lastupddate_date_format}" field="lastUpdDate" id="s_com_example_pizza_model_ColorObject_lastUpdDate" object="${colorobject}" z="CnQ3Ry/HfyRh5WH+CH8vqHF+R7Y="/>
+        <field:display field="lastUpdUsr" id="s_com_example_pizza_model_ColorObject_lastUpdUsr" object="${colorobject}" z="oAB3unYEU+853bBJuPJjMTy3k5A="/>
+        <field:display field="status" id="s_com_example_pizza_model_ColorObject_status" object="${colorobject}" z="NgygntdYjmNvQVNSwGDSOIya48o="/>
+    </page:show>
+</div>

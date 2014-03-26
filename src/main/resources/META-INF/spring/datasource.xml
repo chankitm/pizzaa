@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+	        <property name="driverClass">
+	                <value>${db.driver}</value>
+	        </property>
+	        <property name="jdbcUrl">
+	                <value>${db.url}</value>
+	        </property>
+	        <property name="acquireIncrement">
+	                <value>${db.acquire_increment}</value>
+	        </property>
+	        <property name="idleConnectionTestPeriod">
+	                <value>${db.idle_test_period}</value>
+	        </property>
+	        <property name="maxPoolSize">
+	                <value>${db.max_size}</value>
+	        </property>
+	        <property name="minPoolSize">
+	                <value>${db.min_size}</value>
+	        </property>
+	        <property name="maxStatements">
+	                <value>${db.max_statements}</value>
+	        </property>
+	        <property name="initialPoolSize">
+	                <value>${db.min_size}</value>
+	        </property>
+	        <property name="user">
+	                <value>${db.username}</value>
+	        </property>
+	        <property name="password">
+	                <value>${db.password}</value>
+	        </property>
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+	        <property name="dataSource" ref="dataSource" />
+	</bean>
+</beans>
+                
