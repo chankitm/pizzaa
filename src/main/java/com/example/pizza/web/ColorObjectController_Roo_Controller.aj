@@ -4,15 +4,12 @@
 package com.example.pizza.web;
 
 import com.example.pizza.model.ColorObject;
-import com.example.pizza.model.ColorObjectKey;
 import com.example.pizza.web.ColorObjectController;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import org.joda.time.format.DateTimeFormat;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
-import org.springframework.core.convert.ConversionService;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,14 +21,6 @@ import org.springframework.web.util.WebUtils;
 
 privileged aspect ColorObjectController_Roo_Controller {
     
-    private ConversionService ColorObjectController.conversionService;
-    
-    @Autowired
-    public ColorObjectController.new(ConversionService conversionService) {
-        super();
-        this.conversionService = conversionService;
-    }
-
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String ColorObjectController.create(@Valid ColorObject colorObject, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
         if (bindingResult.hasErrors()) {
@@ -40,7 +29,7 @@ privileged aspect ColorObjectController_Roo_Controller {
         }
         uiModel.asMap().clear();
         colorObject.persist();
-        return "redirect:/colorobjects/" + encodeUrlPathSegment(conversionService.convert(colorObject.getId(), String.class), httpServletRequest);
+        return "redirect:/colorobjects/" + encodeUrlPathSegment(colorObject.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(params = "form", produces = "text/html")
@@ -50,10 +39,10 @@ privileged aspect ColorObjectController_Roo_Controller {
     }
     
     @RequestMapping(value = "/{id}", produces = "text/html")
-    public String ColorObjectController.show(@PathVariable("id") ColorObjectKey id, Model uiModel) {
+    public String ColorObjectController.show(@PathVariable("id") Long id, Model uiModel) {
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("colorobject", ColorObject.findColorObject(id));
-        uiModel.addAttribute("itemId", conversionService.convert(id, String.class));
+        uiModel.addAttribute("itemId", id);
         return "colorobjects/show";
     }
     
@@ -80,17 +69,17 @@ privileged aspect ColorObjectController_Roo_Controller {
         }
         uiModel.asMap().clear();
         colorObject.merge();
-        return "redirect:/colorobjects/" + encodeUrlPathSegment(conversionService.convert(colorObject.getId(), String.class), httpServletRequest);
+        return "redirect:/colorobjects/" + encodeUrlPathSegment(colorObject.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(value = "/{id}", params = "form", produces = "text/html")
-    public String ColorObjectController.updateForm(@PathVariable("id") ColorObjectKey id, Model uiModel) {
+    public String ColorObjectController.updateForm(@PathVariable("id") Long id, Model uiModel) {
         populateEditForm(uiModel, ColorObject.findColorObject(id));
         return "colorobjects/update";
     }
     
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE, produces = "text/html")
-    public String ColorObjectController.delete(@PathVariable("id") ColorObjectKey id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
+    public String ColorObjectController.delete(@PathVariable("id") Long id, @RequestParam(value = "page", required = false) Integer page, @RequestParam(value = "size", required = false) Integer size, Model uiModel) {
         ColorObject colorObject = ColorObject.findColorObject(id);
         colorObject.remove();
         uiModel.asMap().clear();

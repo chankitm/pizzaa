@@ -58,3 +58,11 @@ field string --fieldName colorObjectLocale --column COLOR_OBJECT_LOCALE
 field string --fieldName colorObjectDisplayName --column COLOR_OBJECT_DISPLAY_NAME
 web mvc all --package ~.web
 // Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2014-03-26 13:55:11
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2014-03-27 10:06:51
+entity jpa --class ~.model.ColorSwatch --identifierType ~.model.ColorSwatchKey --table COLOR_SWATCH
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log closed at 2014-03-27 10:16:00
+// Spring Roo 1.2.1.RELEASE [rev 6eae723] log opened at 2014-03-27 10:54:06
+entity jpa --class ~.model.ColorObject
+entity jpa --class ~.model.ColorSwatch
+entity jpa --class ~.model.ProductGroup --identifierType ~.model.ProductGroupKey --table PRODUCT_GROUP
+web mvc all --package ~.web

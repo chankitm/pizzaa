@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_example_pizza_model_ProductGroup" items="${productgroups}" z="zOCiPlyvLoFfmxzp1DF0CdhIjVU=">
+        <table:table data="${productgroups}" id="l_com_example_pizza_model_ProductGroup" path="/productgroups" z="7un+nSGjXia7fiQXsAQPtyGyr8E=">
+            <table:column id="c_com_example_pizza_model_ProductGroup_dbSource" property="dbSource" z="rHpbbjLKTdKK6VtjxB0Ec7yVf80="/>
+            <table:column id="c_com_example_pizza_model_ProductGroup_sizeLabelFlag" property="sizeLabelFlag" z="RvkMKBkdA64sIiqtrgBtYJpjKsk="/>
+            <table:column id="c_com_example_pizza_model_ProductGroup_sizeLabel" property="sizeLabel" z="Xv2QxEPeC4ZXgvmpNgBbMMCxFXY="/>
+            <table:column id="c_com_example_pizza_model_ProductGroup_status" property="status" z="JXHuHLBuL+mwF/pUJHizji7t8gY="/>
+            <table:column date="true" dateTimePattern="${productGroup_createdate_date_format}" id="c_com_example_pizza_model_ProductGroup_createDate" property="createDate" z="9C9LEBafWkKINyx0xpO4GQzZL1s="/>
+            <table:column date="true" dateTimePattern="${productGroup_lastupddate_date_format}" id="c_com_example_pizza_model_ProductGroup_lastUpdDate" property="lastUpdDate" z="1mZtcOKAT6xsFNVyH7qIBZ2Ae90="/>
+        </table:table>
+    </page:list>
+</div>

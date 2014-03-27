@@ -8,7 +8,9 @@ import com.example.pizza.domain.Pizza;
 import com.example.pizza.domain.PizzaOrder;
 import com.example.pizza.domain.Topping;
 import com.example.pizza.model.ColorObject;
-import com.example.pizza.model.ColorObjectKey;
+import com.example.pizza.model.ColorSwatch;
+import com.example.pizza.model.ProductGroup;
+import com.example.pizza.model.ProductGroupKey;
 import com.example.pizza.web.ApplicationConversionServiceFactoryBean;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Configurable;
@@ -123,9 +125,9 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
-    public Converter<ColorObjectKey, ColorObject> ApplicationConversionServiceFactoryBean.getIdToColorObjectConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.example.pizza.model.ColorObjectKey, com.example.pizza.model.ColorObject>() {
-            public com.example.pizza.model.ColorObject convert(com.example.pizza.model.ColorObjectKey id) {
+    public Converter<Long, ColorObject> ApplicationConversionServiceFactoryBean.getIdToColorObjectConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.example.pizza.model.ColorObject>() {
+            public com.example.pizza.model.ColorObject convert(java.lang.Long id) {
                 return ColorObject.findColorObject(id);
             }
         };
@@ -134,23 +136,71 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<String, ColorObject> ApplicationConversionServiceFactoryBean.getStringToColorObjectConverter() {
         return new org.springframework.core.convert.converter.Converter<java.lang.String, com.example.pizza.model.ColorObject>() {
             public com.example.pizza.model.ColorObject convert(String id) {
-                return getObject().convert(getObject().convert(id, ColorObjectKey.class), ColorObject.class);
+                return getObject().convert(getObject().convert(id, Long.class), ColorObject.class);
             }
         };
     }
     
-    public Converter<String, ColorObjectKey> ApplicationConversionServiceFactoryBean.getJsonToColorObjectKeyConverter() {
-        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.example.pizza.model.ColorObjectKey>() {
-            public ColorObjectKey convert(String encodedJson) {
-                return ColorObjectKey.fromJsonToColorObjectKey(new String(Base64.decodeBase64(encodedJson)));
+    public Converter<ColorSwatch, String> ApplicationConversionServiceFactoryBean.getColorSwatchToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.example.pizza.model.ColorSwatch, java.lang.String>() {
+            public String convert(ColorSwatch colorSwatch) {
+                return new StringBuilder().append(colorSwatch.getLocale()).append(" ").append(colorSwatch.getDisplayName()).append(" ").append(colorSwatch.getCountryCode()).append(" ").append(colorSwatch.getCreateDate()).toString();
             }
         };
     }
     
-    public Converter<ColorObjectKey, String> ApplicationConversionServiceFactoryBean.getColorObjectKeyToJsonConverter() {
-        return new org.springframework.core.convert.converter.Converter<com.example.pizza.model.ColorObjectKey, java.lang.String>() {
-            public String convert(ColorObjectKey colorObjectKey) {
-                return Base64.encodeBase64URLSafeString(colorObjectKey.toJson().getBytes());
+    public Converter<Long, ColorSwatch> ApplicationConversionServiceFactoryBean.getIdToColorSwatchConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.example.pizza.model.ColorSwatch>() {
+            public com.example.pizza.model.ColorSwatch convert(java.lang.Long id) {
+                return ColorSwatch.findColorSwatch(id);
+            }
+        };
+    }
+    
+    public Converter<String, ColorSwatch> ApplicationConversionServiceFactoryBean.getStringToColorSwatchConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.example.pizza.model.ColorSwatch>() {
+            public com.example.pizza.model.ColorSwatch convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), ColorSwatch.class);
+            }
+        };
+    }
+    
+    public Converter<ProductGroup, String> ApplicationConversionServiceFactoryBean.getProductGroupToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.example.pizza.model.ProductGroup, java.lang.String>() {
+            public String convert(ProductGroup productGroup) {
+                return new StringBuilder().append(productGroup.getDbSource()).append(" ").append(productGroup.getSizeLabelFlag()).append(" ").append(productGroup.getSizeLabel()).append(" ").append(productGroup.getStatus()).toString();
+            }
+        };
+    }
+    
+    public Converter<ProductGroupKey, ProductGroup> ApplicationConversionServiceFactoryBean.getIdToProductGroupConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.example.pizza.model.ProductGroupKey, com.example.pizza.model.ProductGroup>() {
+            public com.example.pizza.model.ProductGroup convert(com.example.pizza.model.ProductGroupKey id) {
+                return ProductGroup.findProductGroup(id);
+            }
+        };
+    }
+    
+    public Converter<String, ProductGroup> ApplicationConversionServiceFactoryBean.getStringToProductGroupConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.example.pizza.model.ProductGroup>() {
+            public com.example.pizza.model.ProductGroup convert(String id) {
+                return getObject().convert(getObject().convert(id, ProductGroupKey.class), ProductGroup.class);
+            }
+        };
+    }
+    
+    public Converter<String, ProductGroupKey> ApplicationConversionServiceFactoryBean.getJsonToProductGroupKeyConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.example.pizza.model.ProductGroupKey>() {
+            public ProductGroupKey convert(String encodedJson) {
+                return ProductGroupKey.fromJsonToProductGroupKey(new String(Base64.decodeBase64(encodedJson)));
+            }
+        };
+    }
+    
+    public Converter<ProductGroupKey, String> ApplicationConversionServiceFactoryBean.getProductGroupKeyToJsonConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.example.pizza.model.ProductGroupKey, java.lang.String>() {
+            public String convert(ProductGroupKey productGroupKey) {
+                return Base64.encodeBase64URLSafeString(productGroupKey.toJson().getBytes());
             }
         };
     }
@@ -171,8 +221,14 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         registry.addConverter(getColorObjectToStringConverter());
         registry.addConverter(getIdToColorObjectConverter());
         registry.addConverter(getStringToColorObjectConverter());
-        registry.addConverter(getJsonToColorObjectKeyConverter());
-        registry.addConverter(getColorObjectKeyToJsonConverter());
+        registry.addConverter(getColorSwatchToStringConverter());
+        registry.addConverter(getIdToColorSwatchConverter());
+        registry.addConverter(getStringToColorSwatchConverter());
+        registry.addConverter(getProductGroupToStringConverter());
+        registry.addConverter(getIdToProductGroupConverter());
+        registry.addConverter(getStringToProductGroupConverter());
+        registry.addConverter(getJsonToProductGroupKeyConverter());
+        registry.addConverter(getProductGroupKeyToJsonConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {

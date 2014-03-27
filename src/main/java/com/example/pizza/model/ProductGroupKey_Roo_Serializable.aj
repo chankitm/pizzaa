@@ -3,13 +3,13 @@
 
 package com.example.pizza.model;
 
-import com.example.pizza.model.ColorObjectKey;
+import com.example.pizza.model.ProductGroupKey;
 import java.io.Serializable;
 
-privileged aspect ColorObjectKey_Roo_Serializable {
+privileged aspect ProductGroupKey_Roo_Serializable {
     
-    declare parents: ColorObjectKey implements Serializable;
+    declare parents: ProductGroupKey implements Serializable;
     
-    private static final long ColorObjectKey.serialVersionUID = 1L;
+    private static final long ProductGroupKey.serialVersionUID = 1L;
     
 }

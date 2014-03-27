@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_example_pizza_model_ProductGroup" object="${productgroup}" path="/productgroups" z="q0ktIf2i8lm6o6U3dvvNwJ7zJYg=">
+        <field:display field="dbSource" id="s_com_example_pizza_model_ProductGroup_dbSource" object="${productgroup}" z="smliu9bG1zXAEUQIpJiHnlmG42Y="/>
+        <field:display field="sizeLabelFlag" id="s_com_example_pizza_model_ProductGroup_sizeLabelFlag" object="${productgroup}" z="qDH0yVkgwcvkBeXJLxEQZCsK7xs="/>
+        <field:display field="sizeLabel" id="s_com_example_pizza_model_ProductGroup_sizeLabel" object="${productgroup}" z="PNtQwc+bUJ0Oza6WtG9tt6ZpPGY="/>
+        <field:display field="status" id="s_com_example_pizza_model_ProductGroup_status" object="${productgroup}" z="YgSBJS2EXA6isdzuFcUgOKHxJ/k="/>
+        <field:display date="true" dateTimePattern="${productGroup_createdate_date_format}" field="createDate" id="s_com_example_pizza_model_ProductGroup_createDate" object="${productgroup}" z="1ADS3pphRSjZAwd2V9BlWFjR2hw="/>
+        <field:display date="true" dateTimePattern="${productGroup_lastupddate_date_format}" field="lastUpdDate" id="s_com_example_pizza_model_ProductGroup_lastUpdDate" object="${productgroup}" z="flnIgL4KXtpQjFVJgA2bMIe7k+A="/>
+        <field:display field="lastUpdUsr" id="s_com_example_pizza_model_ProductGroup_lastUpdUsr" object="${productgroup}" z="9ZtE8oD7DQQIIYQ2GzbdlnUi0vc="/>
+        <field:display field="colorObject" id="s_com_example_pizza_model_ProductGroup_colorObject" object="${productgroup}" z="DfuyutbWMAYYW1gHTxVgJB5jPXs="/>
+        <field:display field="colorSwatch" id="s_com_example_pizza_model_ProductGroup_colorSwatch" object="${productgroup}" z="U8saMdjNDGvyngXjCFAGZNDsHFg="/>
+    </page:show>
+</div>

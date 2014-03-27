@@ -3,73 +3,74 @@
 
 package com.example.pizza.model;
 
-import com.example.pizza.model.ColorObject;
+import com.example.pizza.model.ProductGroup;
+import com.example.pizza.model.ProductGroupKey;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import org.springframework.transaction.annotation.Transactional;
 
-privileged aspect ColorObject_Roo_Jpa_ActiveRecord {
+privileged aspect ProductGroup_Roo_Jpa_ActiveRecord {
     
     @PersistenceContext
-    transient EntityManager ColorObject.entityManager;
+    transient EntityManager ProductGroup.entityManager;
     
-    public static final EntityManager ColorObject.entityManager() {
-        EntityManager em = new ColorObject().entityManager;
+    public static final EntityManager ProductGroup.entityManager() {
+        EntityManager em = new ProductGroup().entityManager;
         if (em == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
         return em;
     }
     
-    public static long ColorObject.countColorObjects() {
-        return entityManager().createQuery("SELECT COUNT(o) FROM ColorObject o", Long.class).getSingleResult();
+    public static long ProductGroup.countProductGroups() {
+        return entityManager().createQuery("SELECT COUNT(*) FROM ProductGroup o", Long.class).getSingleResult();
     }
     
-    public static List<ColorObject> ColorObject.findAllColorObjects() {
-        return entityManager().createQuery("SELECT o FROM ColorObject o", ColorObject.class).getResultList();
+    public static List<ProductGroup> ProductGroup.findAllProductGroups() {
+        return entityManager().createQuery("SELECT o FROM ProductGroup o", ProductGroup.class).getResultList();
     }
     
-    public static ColorObject ColorObject.findColorObject(Long id) {
+    public static ProductGroup ProductGroup.findProductGroup(ProductGroupKey id) {
         if (id == null) return null;
-        return entityManager().find(ColorObject.class, id);
+        return entityManager().find(ProductGroup.class, id);
     }
     
-    public static List<ColorObject> ColorObject.findColorObjectEntries(int firstResult, int maxResults) {
-        return entityManager().createQuery("SELECT o FROM ColorObject o", ColorObject.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+    public static List<ProductGroup> ProductGroup.findProductGroupEntries(int firstResult, int maxResults) {
+        return entityManager().createQuery("SELECT o FROM ProductGroup o", ProductGroup.class).setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
     }
     
     @Transactional
-    public void ColorObject.persist() {
+    public void ProductGroup.persist() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.persist(this);
     }
     
     @Transactional
-    public void ColorObject.remove() {
+    public void ProductGroup.remove() {
         if (this.entityManager == null) this.entityManager = entityManager();
         if (this.entityManager.contains(this)) {
             this.entityManager.remove(this);
         } else {
-            ColorObject attached = ColorObject.findColorObject(this.id);
+            ProductGroup attached = ProductGroup.findProductGroup(this.id);
             this.entityManager.remove(attached);
         }
     }
     
     @Transactional
-    public void ColorObject.flush() {
+    public void ProductGroup.flush() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.flush();
     }
     
     @Transactional
-    public void ColorObject.clear() {
+    public void ProductGroup.clear() {
         if (this.entityManager == null) this.entityManager = entityManager();
         this.entityManager.clear();
     }
     
     @Transactional
-    public ColorObject ColorObject.merge() {
+    public ProductGroup ProductGroup.merge() {
         if (this.entityManager == null) this.entityManager = entityManager();
-        ColorObject merged = this.entityManager.merge(this);
+        ProductGroup merged = this.entityManager.merge(this);
         this.entityManager.flush();
         return merged;
     }

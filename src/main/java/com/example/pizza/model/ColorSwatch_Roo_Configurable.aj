@@ -3,11 +3,11 @@
 
 package com.example.pizza.model;
 
-import com.example.pizza.model.ColorObjectKey;
+import com.example.pizza.model.ColorSwatch;
 import org.springframework.beans.factory.annotation.Configurable;
 
-privileged aspect ColorObjectKey_Roo_Configurable {
+privileged aspect ColorSwatch_Roo_Configurable {
     
-    declare @type: ColorObjectKey: @Configurable;
+    declare @type: ColorSwatch: @Configurable;
     
 }

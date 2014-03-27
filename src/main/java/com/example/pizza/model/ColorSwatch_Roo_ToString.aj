@@ -3,13 +3,13 @@
 
 package com.example.pizza.model;
 
-import com.example.pizza.model.ColorObjectKey;
+import com.example.pizza.model.ColorSwatch;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-privileged aspect ColorObjectKey_Roo_ToString {
+privileged aspect ColorSwatch_Roo_ToString {
     
-    public String ColorObjectKey.toString() {
+    public String ColorSwatch.toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
     

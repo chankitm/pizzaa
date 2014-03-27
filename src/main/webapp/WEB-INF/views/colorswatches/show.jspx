@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_example_pizza_model_ColorSwatch" object="${colorswatch}" path="/colorswatches" z="I1J5spuLaErP2UdLYn/obZuwZYE=">
+        <field:display field="countryCode" id="s_com_example_pizza_model_ColorSwatch_countryCode" object="${colorswatch}" z="zOygQ22KsZSBA3hTRjN6C62DeeM="/>
+        <field:display date="true" dateTimePattern="${colorSwatch_createdate_date_format}" field="createDate" id="s_com_example_pizza_model_ColorSwatch_createDate" object="${colorswatch}" z="Ird/mObjbDpeS/uJLWbGLYkGFfY="/>
+        <field:display date="true" dateTimePattern="${colorSwatch_lastupddate_date_format}" field="lastUpdDate" id="s_com_example_pizza_model_ColorSwatch_lastUpdDate" object="${colorswatch}" z="LoAsJm9ilZtf+BULLb3OTLpx1ow="/>
+        <field:display field="lastUpdUsr" id="s_com_example_pizza_model_ColorSwatch_lastUpdUsr" object="${colorswatch}" z="uIyza8g9zi28UEzZnfD4uVSx4/s="/>
+        <field:display field="status" id="s_com_example_pizza_model_ColorSwatch_status" object="${colorswatch}" z="FI4xviZ++ZJQuQtyimt3dofxkNo="/>
+        <field:display field="colorObjects" id="s_com_example_pizza_model_ColorSwatch_colorObjects" object="${colorswatch}" z="ruZb4+LuPHKC9DaN/i0ftqCNrd0="/>
+        <field:display field="locale" id="s_com_example_pizza_model_ColorSwatch_locale" object="${colorswatch}" z="M2mZDYMVbHYYilA6VQr/ngRVPe0="/>
+        <field:display field="displayName" id="s_com_example_pizza_model_ColorSwatch_displayName" object="${colorswatch}" z="NOw1jfoWc98DM0wDJpIzUoOELUw="/>
+    </page:show>
+</div>

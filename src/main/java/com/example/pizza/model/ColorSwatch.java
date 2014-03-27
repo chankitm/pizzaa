@@ -1,8 +1,12 @@
 package com.example.pizza.model;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -12,21 +16,20 @@ import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
 
+
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(versionField="", table = "COLOR_Object")
-public class ColorObject {
-    @Column(name = "COLOR_VALUE")
-    private String colorValue;
+@RooJpaActiveRecord(versionField="", table = "COLOR_SWATCH")
+public class ColorSwatch {
+    
+	@Column(name = "LOCALE")
+    private String locale;
 
-    @Column(name = "IMAGE_PATH")
-    private String imagePath;
-
-    @Column(name = "RMS_COLOR_CODE")
-    private String rmsColorCode;
-
-    @Column(name = "REMARKS")
-    private String remarks;
+    @Column(name = "DISPLAY_NAME")
+    private String displayName;
+    
+    @Column(name = "COUNTRY_CODE")
+    private String countryCode;
 
     @Column(name = "CREATE_DATE")
     @Temporal(TemporalType.TIMESTAMP)
@@ -44,4 +47,7 @@ public class ColorObject {
     @NotNull
     @Column(name = "STATUS")
     private String status;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<ColorObject> colorObjects = new HashSet<ColorObject>();
 }

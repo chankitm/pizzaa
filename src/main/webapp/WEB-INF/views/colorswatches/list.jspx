@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_example_pizza_model_ColorSwatch" items="${colorswatches}" z="Hg7fQrqb8Y/guMZkAi90D7SP0mE=">
+        <table:table data="${colorswatches}" id="l_com_example_pizza_model_ColorSwatch" path="/colorswatches" z="q0mH6aP8lVTpgX87o6gVWrJ3FE0=">
+            <table:column id="c_com_example_pizza_model_ColorSwatch_countryCode" property="countryCode" z="woi62oWtmNxDjYvnajY7z5/qE8w="/>
+            <table:column date="true" dateTimePattern="${colorSwatch_createdate_date_format}" id="c_com_example_pizza_model_ColorSwatch_createDate" property="createDate" z="SRZEzm61smvvSdquxltTozr7clY="/>
+            <table:column date="true" dateTimePattern="${colorSwatch_lastupddate_date_format}" id="c_com_example_pizza_model_ColorSwatch_lastUpdDate" property="lastUpdDate" z="TD72MT0VBFC0JhC+uyijMBu5+G8="/>
+            <table:column id="c_com_example_pizza_model_ColorSwatch_lastUpdUsr" property="lastUpdUsr" z="x+CVFzbwPx9I/rOU4p9L6h4yzGc="/>
+            <table:column id="c_com_example_pizza_model_ColorSwatch_locale" property="locale" z="qDa5L8WyQQPRp59Xr11sZMtslIY="/>
+            <table:column id="c_com_example_pizza_model_ColorSwatch_displayName" property="displayName" z="KbxcBcemMyV93LajcBhKVce2NrA="/>
+        </table:table>
+    </page:list>
+</div>

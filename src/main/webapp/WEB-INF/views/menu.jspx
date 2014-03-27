@@ -25,5 +25,13 @@
             <menu:item id="i_colorobject_new" messageCode="global_menu_new" url="/colorobjects?form" z="0oGLLtw6/BIlTTbk1y5PGVkJQic="/>
             <menu:item id="i_colorobject_list" messageCode="global_menu_list" url="/colorobjects?page=1&amp;size=${empty param.size ? 10 : param.size}" z="6fyy+G2l6ohQ/GOdAPClgBjH8cI="/>
         </menu:category>
+        <menu:category id="c_colorswatch" z="Ybn9vRCaBsozwFh5mfq8yaGCQAw=">
+            <menu:item id="i_colorswatch_new" messageCode="global_menu_new" url="/colorswatches?form" z="4K9uoa1UjLz2F2LDn/BL5qmKKk8="/>
+            <menu:item id="i_colorswatch_list" messageCode="global_menu_list" url="/colorswatches?page=1&amp;size=${empty param.size ? 10 : param.size}" z="kW7fEc5BKcwvtFEn6lTAXSd1mow="/>
+        </menu:category>
+        <menu:category id="c_productgroup" z="Fbcw6LvFSHx9PV1rU3vkvqV6MO8=">
+            <menu:item id="i_productgroup_new" messageCode="global_menu_new" url="/productgroups?form" z="xtW7n3Tt7gPMLspbbnrZHLw7DEQ="/>
+            <menu:item id="i_productgroup_list" messageCode="global_menu_list" url="/productgroups?page=1&amp;size=${empty param.size ? 10 : param.size}" z="W7yprxqdDjTbDg0m8up2qNJov/o="/>
+        </menu:category>
     </menu:menu>
 </div>

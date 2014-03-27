@@ -3,6 +3,7 @@ package com.example.pizza.model;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -14,19 +15,23 @@ import org.springframework.roo.addon.tostring.RooToString;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(versionField="", table = "COLOR_Object")
-public class ColorObject {
-    @Column(name = "COLOR_VALUE")
-    private String colorValue;
+@RooJpaActiveRecord(identifierType = ProductGroupKey.class, versionField="", table = "PRODUCT_GROUP")
+public class ProductGroup {
+    @NotNull
+    @Column(name = "DB_SOURCE")
+    private String dbSource;
+	
+    @NotNull
+    @Column(name = "SIZE_LABEL_FLAG")
+    private String sizeLabelFlag;
 
-    @Column(name = "IMAGE_PATH")
-    private String imagePath;
+    @NotNull
+    @Column(name = "SIZE_LABEL")
+    private String sizeLabel;
 
-    @Column(name = "RMS_COLOR_CODE")
-    private String rmsColorCode;
-
-    @Column(name = "REMARKS")
-    private String remarks;
+    @NotNull
+    @Column(name = "STATUS")
+    private String status;
 
     @Column(name = "CREATE_DATE")
     @Temporal(TemporalType.TIMESTAMP)
@@ -41,7 +46,9 @@ public class ColorObject {
     @Column(name = "LAST_UPD_USR")
     private String lastUpdUsr;
 
-    @NotNull
-    @Column(name = "STATUS")
-    private String status;
+    @ManyToOne
+    private ColorObject colorObject;
+
+    @ManyToOne
+    private ColorSwatch colorSwatch;
 }

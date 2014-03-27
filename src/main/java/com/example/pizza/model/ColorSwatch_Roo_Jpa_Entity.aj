@@ -3,7 +3,7 @@
 
 package com.example.pizza.model;
 
-import com.example.pizza.model.ColorObject;
+import com.example.pizza.model.ColorSwatch;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,22 +11,22 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-privileged aspect ColorObject_Roo_Jpa_Entity {
+privileged aspect ColorSwatch_Roo_Jpa_Entity {
     
-    declare @type: ColorObject: @Entity;
+    declare @type: ColorSwatch: @Entity;
     
-    declare @type: ColorObject: @Table(name = "COLOR_Object");
+    declare @type: ColorSwatch: @Table(name = "COLOR_SWATCH");
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private Long ColorObject.id;
+    private Long ColorSwatch.id;
     
-    public Long ColorObject.getId() {
+    public Long ColorSwatch.getId() {
         return this.id;
     }
     
-    public void ColorObject.setId(Long id) {
+    public void ColorSwatch.setId(Long id) {
         this.id = id;
     }
     
